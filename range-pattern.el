@@ -20,7 +20,7 @@
 ;;; Commentary:
 ;;  For details view README file.
 
-;; URL: https://github.com/Emilyseville7cfg/generators
+;; URL: https://github.com/emilyseville7cfg-better-emacs/range-pattern
 
 ;;; Code:
 
