@@ -52,7 +52,7 @@ EXCLUDE-TO: whether to exclude the highest range boundary"
 	  ((equal to 'infinity) t)
 	  (t (funcall to-checker number to))))))
 
-(defmacro range-pattern--internal-wrapper(from tnno number)
+(defmacro range-pattern--internal-wrapper(from to number)
   (list 'range-pattern-check number from to))
 
 (defmacro range-pattern--negated-internal-wrapper(from to number)
