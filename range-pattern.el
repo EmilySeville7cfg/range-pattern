@@ -30,10 +30,10 @@ FROM: the lowest range boundary
 TO: the highest range boundary
 EXCLUDE-FROM: whether to exclude the lowest range boundary
 EXCLUDE-TO: whether to exclude the highest range boundary"
-  (unless (integerp from)
-    (error "The lowest range boundary '%s' is not an integer" from))
-  (unless (integerp to)
-    (error "The highest range boundary '%s' is not an integer" to))
+  (unless (or (integerp from) (equal from 'infinity))
+    (error "The lowest range boundary '%s' is not an integer or 'infinity'" from))
+  (unless (or (integerp to) (equal to 'infinity))
+    (error "The highest range boundary '%s' is not an integer or 'infinity'" to))
   (unless (booleanp exclude-from)
     (error "The lowest range boundary exclusion flag '%s' is not a boolean" exclude-from))
   (unless (booleanp exclude-to)
@@ -45,9 +45,14 @@ EXCLUDE-TO: whether to exclude the highest range boundary"
 	(to-checker (cond
 		       (exclude-to '(lambda (value to) (> to value)))
 		       (t '(lambda (value to) (>= to value))))))
-    (and (funcall from-checker number from) (funcall to-checker number to))))
+    (and (cond
+	  ((equal from 'infinity) t)
+	  (t (funcall from-checker number from)))
+	 (cond
+	  ((equal to 'infinity) t)
+	  (t (funcall to-checker number to))))))
 
-(defmacro range-pattern--internal-wrapper(from to number)
+(defmacro range-pattern--internal-wrapper(from tnno number)
   (list 'range-pattern-check number from to))
 
 (defmacro range-pattern--negated-internal-wrapper(from to number)

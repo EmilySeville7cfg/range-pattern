@@ -39,6 +39,7 @@ Example `~/.emacs` config:
 
 ## Functionality
 
+To use open started or ended ranges replace `from` or `to` with `infinity` symbol.
 By convention all parameters are ordered as follows:
 
 - `number`, `from`, `to`, `exclude-from`, and `exclude-from` (for function)
@@ -51,17 +52,26 @@ Below square brackets are used to represent optional parameters and **not** arra
 
 ## Examples
 
-Check whether 20 in a `[10 50]` range:
+Check whether 20 in a `[10..50]` range:
 
 ```lisp
 (range-pattern-check 20 10 50)
 ```
 
-Check whether 20 in a `[10 50]` range via pattern matching:
+Check whether 20 in a `[10..50]` range via pattern matching:
 
 ```lisp
 (pcase 20
   ((in 10 50) "in range")
+  (_ "anything else"))
+
+```
+
+Check whether 20 in a `[10..infinity]` range via pattern matching:
+
+```lisp
+(pcase 20
+  ((in 10 'infinity) "in range")
   (_ "anything else"))
 
 ```
