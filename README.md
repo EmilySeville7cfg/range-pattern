@@ -75,8 +75,3 @@ Check whether 20 in a `[10..infinity]` range via pattern matching:
   (_ "anything else"))
 
 ```
-
-## FAQ
-
-- Why to use generators to generate sequences?
-  As long as sequences can be extremely long not to consume too much memory it's better to use generators.
