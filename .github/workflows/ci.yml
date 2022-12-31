@@ -8,6 +8,7 @@ jobs:
   run-unit-tests:
     runs-on: ubuntu-22.04
     steps:
+      - uses: actions/checkout@v3
       - run: |
           sudo apt update -y
           sudo apt install emacs
