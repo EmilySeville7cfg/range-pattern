@@ -55,7 +55,7 @@
   "Expect correct checks when all parameters are correct."
   (should (equal (pcase 5
 		   ((in 1 20) t)
-		   (_ nil)) nil))
+		   (_ nil)) t))
   (should (equal (pcase 0
 		   ((not-in 1 20) t)
 		   (_ nil)) t)))
