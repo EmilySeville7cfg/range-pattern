@@ -51,4 +51,13 @@
   "Expect error when FROM > TO."
   (should-error (range-pattern-check 5 10 1)))
 
+(ert-deftest pcase--expect-correct-checks-when-parameters-are-correct()
+  "Expect correct checks when all parameters are correct."
+  (should (equal (pcase 5
+		   ((in 1 20) t)
+		   (_ nil)) t))
+  (should (equal (pcase 0
+		   ((not-in 1 20) t)
+		   (_ nil)) t)))
+
 ;;; tests.el ends here
