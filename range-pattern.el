@@ -1,7 +1,7 @@
 ;;; range-pattern.el --- Range pattern for pcase  -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2022 Emily Grace Seville <EmilySeville7cfg@gmail.com>
-;; Version: 0.1
+;; Version: 0.2
 ;; Package-Requires: ((emacs "27.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -26,10 +26,13 @@
 
 (defun range-pattern-check(number from to &optional exclude-from exclude-to)
   "Check whether a number in a specific range.
+NUMBER: the number to check
 FROM: the lowest range boundary
 TO: the highest range boundary
 EXCLUDE-FROM: whether to exclude the lowest range boundary
 EXCLUDE-TO: whether to exclude the highest range boundary"
+  (unless (or (integerp number))
+    (error "The number to check '%s' is not an integer" number))
   (unless (or (integerp from) (equal from 'infinity))
     (error "The lowest range boundary '%s' is not an integer or 'infinity'" from))
   (unless (or (integerp to) (equal to 'infinity))
@@ -39,6 +42,9 @@ EXCLUDE-TO: whether to exclude the highest range boundary"
   (unless (booleanp exclude-to)
     (error "The highest range boundary exclusion flag '%s' is not a boolean" exclude-to))
 
+  (if (> from to)
+      (error "The lowest range boundary '%s' is greater than the highest range boundary '%d'" from to))
+  
   (let ((from-checker (cond
 		       (exclude-from '(lambda (value from) (< from value)))
 		       (t '(lambda (value from) (<= from value)))))
