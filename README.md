@@ -1,5 +1,7 @@
 # range-pattern
 
+Range pattern for pcase.
+
 ## Requirenments
 
 - `emacs 27.1` higher
