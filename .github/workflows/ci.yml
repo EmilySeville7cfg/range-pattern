@@ -9,4 +9,4 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - uses: emilyseville7cfg-better-emacs/unit-test-runner@v1.11
+      - uses: emilyseville7cfg-better-emacs/unit-test-runner@v1.12
