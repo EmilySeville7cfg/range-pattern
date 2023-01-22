@@ -1,5 +1,7 @@
 # range-pattern
 
+[![CI](https://github.com/emilyseville7cfg-better-emacs/range-pattern/actions/workflows/ci.yml/badge.svg)](https://github.com/emilyseville7cfg-better-emacs/range-pattern/actions/workflows/ci.yml)
+
 Range pattern for pcase.
 
 ## Requirenments
