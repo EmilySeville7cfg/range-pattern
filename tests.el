@@ -1,6 +1,8 @@
 ;;; tests.el --- Unit tests  -*- lexical-binding: t; -*-
 
 ;; Copyright (c) 2022 Emily Grace Seville <EmilySeville7cfg@gmail.com>
+;; Version: 0.2
+;; Package-Requires: ((emacs "27.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -14,6 +16,11 @@
 
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+;;  This package is the part of Better Emacs project.
+
+;; URL: https://github.com/emilyseville7cfg-better-emacs/range-pattern
 
 ;;; Code:
 
