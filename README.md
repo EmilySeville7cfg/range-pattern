@@ -1,4 +1,4 @@
-# range-pattern
+# Range pattern
 
 [![CI](https://github.com/emilyseville7cfg-better-emacs/range-pattern/actions/workflows/ci.yml/badge.svg)](https://github.com/emilyseville7cfg-better-emacs/range-pattern/actions/workflows/ci.yml)
 
